@@ -33,7 +33,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f4f8;color:var(--
 .tab .ti{font-size:19px}
 .tab.active{color:var(--blue2);border-bottom-color:var(--blue2)}
 .tab:hover:not(.active){color:var(--text2);background:#fafbfc}
-.panel{display:none;padding:16px;max-width:960px;margin:0 auto}
+/*.panel{display:none;padding:16px;max-width:960px;margin:0 auto}*/
+.panel{display:none;padding:16px;max-width:100%;margin:0 auto}
 .panel.active{display:block}
 .card{background:white;border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;margin-bottom:16px}
 .card-header{padding:11px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--gray)}
@@ -153,7 +154,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f4f8;color:var(--
         <thead><tr>
           <th>Código</th><th>Descripción</th><th>Categoría</th>
           <th>Stock</th><th>Mín.</th><th>Estado</th>
-          <th>P. Compra</th><th>P. Venta</th><th>Margen</th><th></th>
+          <th>Tipo</th><th>P. Compra</th><th>P. Venta</th><th>Margen</th><th></th>
         </tr></thead>
         <tbody id="stock-tbody"></tbody>
       </table>
@@ -394,6 +395,7 @@ function renderStock(){
       <td style="text-align:center;font-weight:600;${p.stk<=p.min?'color:var(--red)':''}">${p.stk} <span style="font-size:11px;opacity:0.55">${p.uni}</span></td>
       <td style="text-align:center;color:var(--text3)">${p.min}</td>
       <td>${getEstado(p)}</td>
+      <td style="font-size:12px;color:var(--text3)">${p.tipo||'—'}</td>
       <td style="color:var(--text2)">${fmt(p.pc)}</td>
       <td style="font-weight:600">${fmt(p.pv)}</td>
       <td style="font-size:12px;font-weight:600;${mc}">${p.pc>0?Math.round(m)+'%':'—'}</td>
